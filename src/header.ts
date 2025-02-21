@@ -12,8 +12,20 @@ const toggleHeader = function () {
   }
 };
 
+const fadeBox = function () {
+  const pixels = window.scrollY;
+
+  const alpha = Math.min(pixels / 900, 0.25);
+
+  if (headerTag) {
+    headerTag.style.boxShadow = `0 0 10px rgba(0,0,0, ${alpha})`;
+  }
+};
+
+fadeBox();
 toggleHeader();
 
 document.addEventListener('scroll', function () {
   toggleHeader();
+  fadeBox();
 });
