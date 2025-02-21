@@ -1,6 +1,25 @@
 const irisLeft = document.querySelector<HTMLDivElement>('div.iris-left');
 const irisRight = document.querySelector<HTMLDivElement>('div.iris-right');
 
+let interval: number | null = null;
+
+//move the eyes every 3 seconds
+const startInterval = function () {
+  if (interval !== null) {
+    clearInterval(interval);
+  }
+
+  interval = setInterval(() => {
+    const x = Math.random() * window.innerWidth;
+    const y = Math.random() * window.innerHeight;
+
+    if (irisLeft && irisRight) {
+      moveEye(irisLeft, x, y);
+      moveEye(irisRight, x, y);
+    }
+  }, 3000);
+};
+
 const moveEye = function (tag: HTMLDivElement, mouseX: number, mouseY: number) {
   // tag.style.left = mouseX + 'px';
   // tag.style.top = mouseY + 'px';
@@ -11,7 +30,7 @@ const moveEye = function (tag: HTMLDivElement, mouseX: number, mouseY: number) {
 
   //find difference between eye and mouse
   const diffX = mouseX - eyeMidX;
-  const diffY = mouseY - eyeMidY;
+  const diffY = mouseY - eyeMidY - window.scrollY;
 
   //pythagoras theorem
   const diff = Math.sqrt(diffX * diffX + diffY * diffY);
@@ -33,7 +52,10 @@ const moveEye = function (tag: HTMLDivElement, mouseX: number, mouseY: number) {
   }
 };
 
+startInterval();
+
 document.addEventListener('mousemove', function (event) {
+  startInterval();
   if (irisLeft && irisRight) {
     moveEye(irisLeft, event.pageX, event.pageY);
     moveEye(irisRight, event.pageX, event.pageY);
