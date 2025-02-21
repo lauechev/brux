@@ -9,10 +9,13 @@
 
   --darkBlue: #052837;
   --skyBlue: #c7f2f1;
+  --white: #eaf4f3;
 
-  --color1: var(--skyBlue);
   --color2: var(--olive);
   --color3: var(--terracota);
-  --color4: var(--sunset);
+
+  --color1: var(--skyBlue);
+  --colorButton: var(--darkBlue);
   --colorFont: var(--darkBlue);
+  --colorFontInverted: var(--white);
 }
