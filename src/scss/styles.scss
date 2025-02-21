@@ -9,7 +9,7 @@ body {
   font-weight: 300;
   line-height: 1.5;
 
-  background-color: #ffffff;
+  background-color: var(--background2);
   color: var(--colorFont);
 }
 
@@ -18,7 +18,7 @@ header {
   top: 0;
   left: 0;
 
-  background-color: var(--color1);
+  background-color: var(--background1);
   width: 100%;
   z-index: 1;
 
@@ -29,6 +29,11 @@ header {
 
   padding: 0 48px 0 48px;
   height: 64px;
+  transition: background-color 0.8s;
+}
+
+header.scrolled {
+  background-color: var(--background2);
 }
 
 header h1,
@@ -82,7 +87,7 @@ p {
 section.hero {
   margin: 64px 0 0 0;
   padding: 160px 48px 160px 48px;
-  background-color: var(--color1);
+  background-color: var(--background1);
   background-image: url(/hero.jpg);
   background-size: contain;
   background-repeat: no-repeat;
