@@ -3,6 +3,14 @@
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 body {
   font-family: 'DM Sans', Arial;
   font-size: 18px;
@@ -116,4 +124,12 @@ section.content:nth-child(odd) {
 
 section.content:nth-child(odd) div.content {
   margin: 0 48px 0 0;
+}
+
+h2,
+h3,
+p,
+section img,
+a.button {
+  opacity: 0;
 }
